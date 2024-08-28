@@ -15,6 +15,7 @@ namespace Backend.DomainService
     {
         Task<string> CreateUserAsync(CreateUserRequest request);
         Task<string?> LoginAsync(string username, string password);
+        Task LogoutAsync(string authKey);
     }
 
     public class UserDomainService : IUserDomainService
@@ -63,6 +64,17 @@ namespace Backend.DomainService
             }
 
             return GenerateJwtToken(user);
+        }
+
+        public async Task LogoutAsync(string authKey)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.AuthKey == authKey);
+            if (user != null)
+            {
+                user.AuthKey = null;
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+            }
         }
 
         private string HashPassword(string password)

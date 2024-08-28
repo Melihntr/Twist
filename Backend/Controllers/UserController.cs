@@ -71,6 +71,17 @@ namespace Backend.Controllers
                 return StatusCode(500, new { message = "An error occurred during login.", error = ex.Message });
             }
         }
+        [HttpPost("logout")]
+        public async Task<IActionResult> Logout([FromHeader(Name = "Authorization")] string authKey)
+        {
+            if (string.IsNullOrEmpty(authKey))
+            {
+                return BadRequest(new { message = "AuthKey is required" });
+            }
+
+            await _userService.LogoutAsync(authKey);
+            return Ok(new { message = "Logged out successfully" });
+        }
     }
 
     public class LoginRequest
