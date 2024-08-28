@@ -3,19 +3,23 @@ import Navbar from '../../components/Navbar';
 import LoginedNavbar from '../../components/LoginedNavbar';
 import Leftbar from '../../components/Leftbar';
 import PostArea from '../../components/PostArea';
+import SharedPost from '../../components/SharedPost';
 
 const Home = ({ isLogin }) => {
   return (
     <>
-      
+      {/* Render appropriate Navbar based on login state */}
       {!isLogin ? <Navbar /> : <LoginedNavbar />}
 
-      
-      <div className="flex h-[100vh]"> 
+      <div className="flex h-[100vh]">
+        {/* Fixed Leftbar */}
         <Leftbar />
 
-        <div className="w-[60%] bg-gray-100 p-10">
+        {/* Content area */}
+        <div className="flex-1 ml-[15%] p-10 mt-20"> {/* Added margin-left to accommodate Leftbar width */}
           <PostArea />
+          <SharedPost />
+        
         </div>
       </div>
     </>
