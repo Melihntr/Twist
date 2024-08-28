@@ -15,7 +15,8 @@ namespace Backend.Controllers
             _userService = userService;
         }
 
-        [HttpPost]
+        // Endpoint to create a new user
+        [HttpPost("register")]
         public async Task<IActionResult> CreateUser([FromBody] CreateUserRequest request)
         {
             if (request == null || !ModelState.IsValid)
@@ -39,5 +40,42 @@ namespace Backend.Controllers
                 return StatusCode(500, new { message = "An error occurred while creating the account.", error = ex.Message });
             }
         }
+
+        // Endpoint for user login
+        [HttpPost("login")]
+        public async Task<IActionResult> Login([FromBody] LoginRequest request)
+        {
+            if (request == null || !ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            try
+            {
+                var authKey = await _userService.LoginAsync(request.Username, request.Password);
+
+                if (authKey == null)
+                {
+                    return Unauthorized(new { message = "Invalid username or password." });
+                }
+
+                return Ok(new
+                {
+                    message = "Login successful",
+                    authKey
+                });
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (you might use a logging framework here)
+                return StatusCode(500, new { message = "An error occurred during login.", error = ex.Message });
+            }
+        }
+    }
+
+    public class LoginRequest
+    {
+        public string Username { get; set; }
+        public string Password { get; set; }
     }
 }
