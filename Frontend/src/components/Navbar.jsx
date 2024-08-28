@@ -25,15 +25,15 @@ const Navbar = () => {
 
       {/* Links Section */}
       <div className="flex items-center justify-center  h-full w-1/3 space-x-6 text-white gap-10 text-xl font-bold mr-10 ">
-        <a href="#" className="hover:text-yellow-300 transition duration-300 flex gap-3 items-center">
-          <Link to={"/"}><FcHome /> Home</Link>
-        </a>
-        <a href="#" className="hover:text-yellow-300 transition duration-300 flex gap-3 items-center">
-          <Link to={"/login"}><SlLogin />Login </Link>
-        </a>
-        <a href="#" className="hover:text-yellow-300 transition duration-300 flex gap-3 items-center">
-         <Link to={"/signup"}><FaRupeeSign /> Signup</Link>
-        </a>
+      <Link to={"/"}><a href="#" className="hover:text-yellow-300 transition duration-300 flex gap-3 items-center">
+          <FcHome /> Home
+        </a></Link>
+        <Link to={"/login"}><a href="#" className="hover:text-yellow-300 transition duration-300 flex gap-3 items-center">
+          <SlLogin />Login 
+        </a></Link>
+        <Link to={"/signup"}> <a href="#" className="hover:text-yellow-300 transition duration-300 flex gap-3 items-center">
+         <FaRupeeSign /> Signup
+        </a></Link>
       </div>
     </div>
   );
