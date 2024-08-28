@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "ed8b77f0-983c-4904-9330-49f535be2775",
+		"name": "Twist",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "36838909"
+	},
+	"item": [
+		{
+			"name": "Get DB Test",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "User_Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"username\": \"user1\",\r\n  \"email\": \"user1@example.com\",\r\n  \"password\": \"password1\",\r\n  \"gender\": \"Male\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5033/api/user/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5033",
+					"path": [
+						"api",
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5033/api/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5033",
+					"path": [
+						"api",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
