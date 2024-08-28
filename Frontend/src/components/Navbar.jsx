@@ -6,7 +6,7 @@ import { FaRupeeSign } from "react-icons/fa6";
 
 const Navbar = () => {
   return (
-    <div className="w-full h-[80px] flex items-center justify-between bg-gray-800 p-4">
+    <div className="w-full h-[80px] flex items-center justify-between bg-gray-800 p-4 absolute z-40">
       {/* Logo Section */}
       <div className="flex items-center justify-center h-full w-1/3">
         <h1 className="text-3xl font-extrabold text-white">Social Media</h1>

@@ -11,11 +11,11 @@ import { MdExplore, MdMessage, MdBookmark, MdHome } from "react-icons/md";
 
 const Leftbar = () => {
   return (
-    <div className="w-[15%] h-[100vh] bg-slate-800 flex flex-col items-start p-5 ">
+    <div className="fixed w-[15%] h-[100vh] bg-slate-800 flex flex-col items-start p-5 top-0 left-0">
       {/* Profile Section */}
 
       {/* Social Media Navigation Section */}
-      <div className="w-full mb-8">
+      <div className="w-full mb-8 mt-28">
         <h3 className="text-lg text-white mb-4">Navigation</h3>
         <div className="flex flex-col gap-5">
           <a
