@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-import axios from "axios"
+import axios from "axios";
 
 const Signup = () => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [gender, setGender] = useState('');
   const [error, setError] = useState('');
 
   const handleSignup = async (e) => {
@@ -17,16 +18,15 @@ const Signup = () => {
     } else {
       setError('');
       try {
-        const response = await axios.post("http://localhost:3000/signup",{
-            username,
-            email,
-            password
-          })
-          console.log('Sign up successful');
-        
+        const response = await axios.post("http://localhost:5033/api/user/register", {
+          username,
+          email,
+          password,
+          gender
+        });
+        console.log('Sign up successful');
       } catch (error) {
         console.log(error);
-        
       }
     }
   };
@@ -75,6 +75,20 @@ const Signup = () => {
               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
               required
             />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 text-sm font-bold mb-2">Gender</label>
+            <select
+              value={gender}
+              onChange={(e) => setGender(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              required
+            >
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
           </div>
           {error && <p className="text-red-500 text-sm mb-4">{error}</p>}
           <button
