@@ -81,3 +81,4 @@ C:\Users\melih\OneDrive\Belgeler\Projects\Twist\Backend\bin\Debug\net8.0\Swashbu
 C:\Users\melih\OneDrive\Belgeler\Projects\Twist\Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\melih\OneDrive\Belgeler\Projects\Twist\Backend\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
 C:\Users\melih\OneDrive\Belgeler\Projects\Twist\Backend\obj\Debug\net8.0\Backend.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\melih\OneDrive\Belgeler\Projects\Twist\Backend\obj\Debug\net8.0\Backend.sourcelink.json
