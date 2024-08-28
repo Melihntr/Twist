@@ -3,6 +3,7 @@ import { CiSearch } from "react-icons/ci";
 import { FcHome } from "react-icons/fc";
 import { SlLogin } from "react-icons/sl";
 import { FaRupeeSign } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
@@ -25,13 +26,13 @@ const Navbar = () => {
       {/* Links Section */}
       <div className="flex items-center justify-center  h-full w-1/3 space-x-6 text-white gap-10 text-xl font-bold mr-10 ">
         <a href="#" className="hover:text-yellow-300 transition duration-300 flex gap-3 items-center">
-          <FcHome /> Home
+          <Link to={"/"}><FcHome /> Home</Link>
         </a>
         <a href="#" className="hover:text-yellow-300 transition duration-300 flex gap-3 items-center">
-          <SlLogin />Login
+          <Link to={"/login"}><SlLogin />Login </Link>
         </a>
         <a href="#" className="hover:text-yellow-300 transition duration-300 flex gap-3 items-center">
-         <FaRupeeSign /> Signup
+         <Link to={"/signup"}><FaRupeeSign /> Signup</Link>
         </a>
       </div>
     </div>
