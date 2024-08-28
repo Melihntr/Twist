@@ -1,4 +1,5 @@
 using Backend.Data;
+using Backend.DomainService; // Ensure this namespace includes IUserService
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -7,6 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
         new MySqlServerVersion(new Version(8, 0, 0)))); // Specify your MySQL version
+
+// Register IUserService and its implementation
+builder.Services.AddScoped<IUserDomainService, UserDomainService>();
+
 
 builder.Services.AddControllers();
 
@@ -30,9 +35,12 @@ app.UseAuthorization();
 
 // Enable Swagger middleware
 app.UseSwagger();
-app.UseSwaggerUI();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "API V1");
+    c.RoutePrefix = string.Empty; // Set Swagger UI at app's root
+});
 
 app.MapControllers();
 
 app.Run();
-
