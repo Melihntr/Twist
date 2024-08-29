@@ -14,7 +14,13 @@ const Login = () => {
         email,
         password,
       });
-      console.log("Login successful");
+      const token = response.data.token;
+      localStorage.setItem("authToken", token);
+      console.log(
+        "login succesfull and token stored to the localstorage linking to home"
+      );
+      handleUserLogin();
+      window.location.href = "/";
       // You can handle successful login here, e.g., redirecting to another page
     } catch (error) {
       console.log(error);
