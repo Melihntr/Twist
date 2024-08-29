@@ -7,7 +7,7 @@ import Navbar from "./components/Navbar"
 import LoginedNavbar from "./components/LoginedNavbar";
 
 function App() {
-  const [isLogin,setIsLogin] = useState(false);
+  const [isLogin,setIsLogin] = useState(true);
 
   const handleUserLogin = ()=>{
     setIsLogin(true)
@@ -23,7 +23,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home isLogin={isLogin} />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/login" element={<Login handleUserLogin={handleUserLogin} />} />
       </Routes>
 
     </Router>

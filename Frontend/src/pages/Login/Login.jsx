@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-const Login = () => {
+const Login = ({handleUserLogin}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -20,7 +20,7 @@ const Login = () => {
       console.log(
         "login succesfull and token stored to the localstorage linking to home"
       );
-
+      handleUserLogin();
       window.location.href = "/";
       // You can handle successful login here, e.g., redirecting to another page
     } catch (error) {
