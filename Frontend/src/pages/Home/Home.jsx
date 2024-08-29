@@ -5,11 +5,10 @@ import Leftbar from '../../components/Leftbar';
 import PostArea from '../../components/PostArea';
 import SharedPost from '../../components/SharedPost';
 
-const Home = ({ isLogin }) => {
+const Home = () => {
   return (
     <>
-      {/* Render appropriate Navbar based on login state */}
-      {!isLogin ? <Navbar /> : <LoginedNavbar />}
+     
 
       <div className="flex h-[100vh]">
         {/* Fixed Leftbar */}
