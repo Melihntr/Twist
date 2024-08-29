@@ -5,6 +5,7 @@ import Signup from "./pages/Signup/Signup";
 import Login from "./pages/Login/Login";
 import Navbar from "./components/Navbar"
 import LoginedNavbar from "./components/LoginedNavbar";
+import Footer from "./components/Footer";
 
 function App() {
   const [isLogin,setIsLogin] = useState(false);
@@ -25,7 +26,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
-
+     
     </Router>
       
     </>
