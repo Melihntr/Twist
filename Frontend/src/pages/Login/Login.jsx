@@ -17,10 +17,11 @@ const Login = () => {
 
       const token = response.data.token;
       localStorage.setItem("authToken", token);
-      console.log("login succesfull and token stored to the localstorage");
+      console.log(
+        "login succesfull and token stored to the localstorage linking to home"
+      );
 
-      console.log("Login successful");
-      window.location.href = "/home";
+      window.location.href = "/";
       // You can handle successful login here, e.g., redirecting to another page
     } catch (error) {
       console.log(error);
